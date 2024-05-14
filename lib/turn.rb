@@ -40,22 +40,30 @@ require 'pry'
 
 	def pile_cards
 		if type == :basic
-			spoils_of_war << player1.deck.remove_card
-			spoils_of_war << player2.deck.remove_card  
-		end
+			spoils_of_war.append(player1.deck.remove_card)
+			spoils_of_war.append(player2.deck.remove_card)
+		
 
-		if type == :war
-			player1.deck.rank(0,1,2) << spoils_of_war
-			player2.deck.rank(0,1,2) << spoils_of_war
-		end
+		elsif type == :war
+			spoils_of_war << player1.deck(0,1,2) 
+			spoils_of_war << player2.deck(0,1,2)  
+		
 
-		if type == :mutually_assured_destruction
+		else 
 			deck1.delete_at(0,1,2)
 			deck1.delete_at(0,1,2)
 		end
 	end
 
+	def award_spoils
+		spoils_of_war.each {|card| winner.deck.add_card(card)}
+		
+	end
+		
+			
+	
 
+	
 end
 
 

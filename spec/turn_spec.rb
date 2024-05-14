@@ -32,5 +32,8 @@ RSpec.describe Turn do
   expect(turn.type).to eq(:basic)
 	expect(turn.winner).to eq(player2)
   expect(turn.pile_cards).to eq([card1, card3])
+	expect(turn.spoils_of_war).to eq([card1, card3])
+	expect(player1.deck).to eq([card2, card5, card8])
+	expect(player2.deck).to eq([card4, card6, card7, card1, card3])
   end
 end
