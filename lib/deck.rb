@@ -23,12 +23,12 @@ class Deck
   
 
   def remove_card
-    @cards.delete_at(0)
-    @cards
+    cards.shift
+    
   end
 
   def add_card(card)
-    @cards.push(card)
+    cards.push(card)
   
   end
 
