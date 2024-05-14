@@ -11,7 +11,7 @@ require 'pry'
   def type 
 		if player1.deck.rank_of_card_at(0) != player2.deck.rank_of_card_at(0)
 			@type = :basic
-		elsif deck1.rank.at(0) == deck2.rank.at(0) 
+		elsif player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) 
 			@type = :war
 		else
 			@type = :mutually_assured_destruction
@@ -42,16 +42,23 @@ require 'pry'
 		if type == :basic
 			spoils_of_war.append(player1.deck.remove_card)
 			spoils_of_war.append(player2.deck.remove_card)
-		
-
+	
 		elsif type == :war
-			spoils_of_war << player1.deck(0,1,2) 
-			spoils_of_war << player2.deck(0,1,2)  
-		
-
+			for i in 0..2 do
+				spoils_of_war.append(player1.deck.remove_card)
+			end
+			for i in 0..2 do
+				spoils_of_war.append(player2.deck.remove_card)
+			end
+	
 		else 
-			deck1.delete_at(0,1,2)
-			deck1.delete_at(0,1,2)
+			for i in 0..2 do
+				player1.deck.remove_card
+			end
+			for i in 0..2 do
+				player2.deck.remove_card
+			end
+
 		end
 	end
 
