@@ -1,4 +1,5 @@
 require './lib/card'
+require 'pry'
 
 class Deck
   attr_reader :cards
@@ -12,23 +13,24 @@ class Deck
   end
 
   def high_ranking_cards
-    
-    
+    @cards.map{|x| x.rank >= 11 ? x : nil}.compact
+  end
 
-    
-  #       #this method will return an array of cards in the deck that have a rank of 11 or above 
-  #       #(face cards and aces)
-  # end
+  
+  def percent_high_ranking
+    ((high_ranking_cards.length.to_f/@cards.length)*100).round(2)
+  end
+  
+
+  def remove_card
+    @cards.delete_at(0)
+    @cards
+  end
+
+  def add_card(card)
+    @cards.push(card)
+  
+  end
+
 end
-#     def percent_high_ranking
-#         #this method will return the percentage of cards that are high ranking
-#     end
 
-#     def remove_card
-#         #this method will remove the top card from the deck
-#     end
-
-#     def add_card
-#         #this method will add one card to the bottom (end) of the deck
-#     end
-# end
