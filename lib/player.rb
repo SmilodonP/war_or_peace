@@ -1,13 +1,19 @@
-require './lib/card.rb'
-require './lib/deck.rb'
 require 'pry'
 
-class Player
-  attr_reader :name
 
-	def initialize(name)
-	@name = name
+class Player
+  attr_reader :name, :deck
+
+	def initialize(name, deck)
+		@name = name
+		@deck = deck
+
 	end
 
+	def has_lost?
+		@deck.cards.length == 0
+		
+	end
 end
+
 
