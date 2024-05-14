@@ -2,12 +2,12 @@ class Card
 attr_reader :suit, :value, :rank
 
 def initialize(suit, value, rank)
-    @suit = suit
-    @value = value
-    @rank = rank
+  @suit = suit
+  @value = value
+  @rank = rank
 end
 
-  # def card1
+	# def card1
   #   suit = diamond
 	# 	value = 'Queen'
 	# 	rank = 12

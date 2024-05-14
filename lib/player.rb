@@ -2,7 +2,7 @@ require 'pry'
 
 
 class Player
-  attr_reader :name, :deck
+attr_reader :name, :deck
 
 	def initialize(name, deck)
 		@name = name
@@ -11,7 +11,7 @@ class Player
 	end
 
 	def has_lost?
-		@deck.cards.length == 0
+		deck.cards.length == 0
 		
 	end
 end

@@ -3,7 +3,7 @@ require './lib/deck.rb'
 require './lib/player.rb'
 
 RSpec.configure do |config|
-  config.formatter = :documentation
+	config.formatter = :documentation
 end
 
 RSpec.describe Player do
